@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
 // compose use for adding more then one queery . 
 import {flowRight as compose} from 'lodash';
-import { getAuthorsQuery, addBookMutation } from '../components/queries/queries'
+import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../components/queries/queries'
 
 
 
@@ -34,7 +34,8 @@ submitFrom(e){
             name:this.state.name,
             genre:this.state.genre,
             authorId:this.state.authorId
-        }
+        },
+        refetchQueries:[{ query:getBooksQuery }]
     });
 }
 render(){
