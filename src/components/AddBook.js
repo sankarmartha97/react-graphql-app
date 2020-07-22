@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {graphql, compose} from 'react-apollo';
+import {graphql} from 'react-apollo';
+import {flowRight as compose} from 'lodash';
 import { getAuthorsQuery, addBookMutation } from '../components/queries/queries'
 
 
@@ -27,6 +28,13 @@ displayAuthors(){
 }
 submitFrom(e){
     e.preventDefault();
+    this.props.addBookMutation({
+        variables:{
+            name:this.state.name,
+            genre:this.state.genre,
+            authorId:this.state.authorId
+        }
+    });
 }
 render(){
     return(
