@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
+// compose use for adding more then one queery . 
 import {flowRight as compose} from 'lodash';
 import { getAuthorsQuery, addBookMutation } from '../components/queries/queries'
 
